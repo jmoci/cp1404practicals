@@ -5,7 +5,7 @@ class Guitar:
         self.cost = cost
 
     def __str__(self):
-        return f"{self.name} ({self.year}) : ${self.cost:.,2f}"
+        return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
     def get_age(self):
         #Change this to use the current year if functionality is required beyond 2024
