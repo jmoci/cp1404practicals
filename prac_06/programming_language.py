@@ -7,5 +7,5 @@ class ProgrammingLanguage:
     def __str__(self):
         return f"{self.name}, {self._typing} Typing, Reflection={self._has_reflection}, First appeared in {self._year}"
 
-def is_dynamic(self) -> bool:
-    return self._typing.lower() == 'dynamic'
+    def is_dynamic(self) -> bool:
+        return self._typing.lower() == 'dynamic'
