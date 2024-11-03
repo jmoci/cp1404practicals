@@ -1,3 +1,9 @@
+"""estimated time 15 min
+started at 7:07pm
+finished at 7:23pm
+total time 16min"""
+
+
 class ProgrammingLanguage:
     def __init__(self, name, typing, has_reflection, year):
         self.name = name
