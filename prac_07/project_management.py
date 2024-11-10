@@ -29,7 +29,7 @@ def display_main_menu():
         if choice == 'L':
             projects = load_projects()
         elif choice == 'S':
-            pass
+            save_projects(projects,FILEPATH)
         elif choice == 'D':
             display_projects(projects)
         elif choice == 'F':
@@ -52,6 +52,12 @@ def load_projects():
             #TODO replace parts1 with date
             projects.append(Project(parts[0], parts[1], int(parts[2]),float(parts[3]), int(parts[4])))
     return projects
+
+def save_projects(projects,filepath):
+    with open(filepath, 'w') as file:
+        file.write("Name	Start Date	Priority	Cost Estimate	Completion Percentage\n")
+        for project in projects:
+            file.write(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
 
 def display_projects(projects):
     """Display the list of projects"""
