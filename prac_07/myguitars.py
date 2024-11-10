@@ -5,14 +5,19 @@ from guitar import Guitar
 FILEPATH = 'guitars.csv'
 
 def main():
-    parse_file(FILEPATH)
+    guitars = read_guitars_data(FILEPATH)
+    for guitar in guitars:
+        print(guitar)
 
-def parse_file(filepath:str):
+def read_guitars_data(filepath:str):
+    """"""
+    guitars = []
     with open(FILEPATH,'r') as file:
         for line in file:
             parts = line.split(',')
             guitar = Guitar(parts[0],int(parts[1]),float(parts[2]))
-            print(guitar)
+            guitars.append(guitar)
+    return guitars
 
 if __name__ == "__main__":
     main()
