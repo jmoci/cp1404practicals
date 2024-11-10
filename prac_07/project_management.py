@@ -2,7 +2,7 @@
 Time Estimate: 30min
 Start Time: 5:33pm
 """
-from html.parser import incomplete
+from datetime import datetime
 
 from prac_07.project import Project
 
@@ -49,15 +49,15 @@ def load_projects():
         file.readline()
         for line in file:
             parts = line.strip().split('\t')
-            #TODO replace parts1 with date
-            projects.append(Project(parts[0], parts[1], int(parts[2]),float(parts[3]), int(parts[4])))
+            project_date = datetime.strptime(parts[1], '%d/%m/%Y')
+            projects.append(Project(parts[0], project_date, int(parts[2]),float(parts[3]), int(parts[4])))
     return projects
 
 def save_projects(projects,filepath):
     with open(filepath, 'w') as file:
         file.write("Name	Start Date	Priority	Cost Estimate	Completion Percentage\n")
         for project in projects:
-            file.write(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
+            file.write(f"{project.name}\t{project.start_date.strftime("%d/%m/%Y")}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
 
 def display_projects(projects):
     """Display the list of projects"""

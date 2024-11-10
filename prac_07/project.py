@@ -1,3 +1,4 @@
+from datetime import datetime
 class Project:
     def __init__(self, name, start_date, priority, cost_estimate, completion_percentage):
         self.name = name
@@ -7,4 +8,4 @@ class Project:
         self.completion_percentage = completion_percentage
 
     def __repr__(self):
-        return f"{self.name}\tstart: {self.start_date}\tpriority {self.priority}\testimate: ${self.cost_estimate}\tcompletion: {self.completion_percentage}%"
+        return f"{self.name}\tstart: {self.start_date.strftime("%d/%m/%Y")}\tpriority {self.priority}\testimate: ${self.cost_estimate}\tcompletion: {self.completion_percentage}%"
