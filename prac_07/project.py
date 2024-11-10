@@ -8,4 +8,6 @@ class Project:
         self.completion_percentage = completion_percentage
 
     def __repr__(self):
-        return f"{self.name}\tstart: {self.start_date.strftime("%d/%m/%Y")}\tpriority {self.priority}\testimate: ${self.cost_estimate}\tcompletion: {self.completion_percentage}%"
+        return f"{self.name}, start: {self.start_date.strftime("%d/%m/%Y")}, priority {self.priority}, estimate: ${self.cost_estimate}, completion: {self.completion_percentage}%"
+    def __lt__(self, other):
+        return self.priority < other.priority
