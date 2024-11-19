@@ -19,12 +19,14 @@ class MilesToKMApp(App):
         return self.root
 
     def handle_increment(self,sign):
+        """increment or decrement text field value based on sign argument"""
         try:
             self.root.ids.input_miles.text = str(float(self.root.ids.input_miles.text)+sign)
         except ValueError:
             self.root.ids.input_miles.text = f"{float(sign):.2}"
 
     def handle_convert_mi_to_km(self, miles):
+        """update message to a string representing the result of miles argument converted to kilometers"""
         try:
             result = float(miles)*MILES_TO_KM_CONSTANT
             self.message = str(result)
