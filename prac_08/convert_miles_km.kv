@@ -3,6 +3,7 @@ BoxLayout:
     BoxLayout:
         orientation: 'horizontal'
         TextInput:
+            on_text: app.handle_convert_mi_to_km(self.text)
             id: input_miles
             text: ''
             font_size: 48
@@ -15,9 +16,9 @@ BoxLayout:
             Button:
                 on_release: app.handle_increment(-1)
                 text: 'Down'
-    Button:
-        text: 'Convert miles to km'
-        on_release: app.handle_convert_mi_to_km(input_miles.text)
+#    Button:
+#        text: 'Convert miles to km'
+#        on_release: app.handle_convert_mi_to_km(input_miles.text)
     Label:
         text: app.message
         id: output_label

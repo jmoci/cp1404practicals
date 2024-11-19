@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.properties import StringProperty
 
+MILES_TO_KM_CONSTANT = 1.60934
 
 class MilesToKMApp(App):
     """ MilesToKMApp is a Kivy App for converting miles to kilometers """
@@ -21,12 +22,13 @@ class MilesToKMApp(App):
         try:
             self.root.ids.input_miles.text = str(float(self.root.ids.input_miles.text)+sign)
         except ValueError:
-            pass
+            self.root.ids.input_miles.text = f"{float(sign):.2}"
+
     def handle_convert_mi_to_km(self, miles):
         try:
-            result = float(miles)*1.60934
+            result = float(miles)*MILES_TO_KM_CONSTANT
             self.message = str(result)
         except ValueError:
-            pass
+            self.message = "0"
 
 MilesToKMApp().run()
