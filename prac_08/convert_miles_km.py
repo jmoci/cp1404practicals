@@ -17,6 +17,11 @@ class MilesToKMApp(App):
         self.message = "Convert miles to km"
         return self.root
 
+    def handle_increment(self,sign):
+        try:
+            self.root.ids.input_miles.text = str(float(self.root.ids.input_miles.text)+sign)
+        except ValueError:
+            pass
     def handle_convert_mi_to_km(self, miles):
         try:
             result = float(miles)*1.60934

@@ -11,7 +11,9 @@ BoxLayout:
             orientation: 'vertical'
             Button:
                 text: 'Up'
+                on_release: app.handle_increment(1)
             Button:
+                on_release: app.handle_increment(-1)
                 text: 'Down'
     Button:
         text: 'Convert miles to km'
