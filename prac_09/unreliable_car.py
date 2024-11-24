@@ -11,6 +11,7 @@ class UnreliableCar(Car):
         self.reliability = reliability
 
     def drive(self, distance):
+        # Chance based on reliability field to drive the car a given distance
         if randint(0, 100) < self.reliability:
             return super().drive(distance)
         return 0
