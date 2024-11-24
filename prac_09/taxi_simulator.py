@@ -13,17 +13,35 @@ def display_main_menu():
     # Present the user with a list of menu options
     #chosen_taxi = None
     bill = 0
-    chosen_taxi = Taxi("Toyota 1",100)
+    chosen_taxi = None
     print(MAIN_MENU)
     choice = input(">>>").upper()
     while choice != 'Q':
         if choice == 'C':
-            pass
+            chosen_taxi = handle_choose_taxi()
         if choice == 'D':
             bill += handle_drive_taxi(chosen_taxi)
             print(f"Bill to date: ${bill:.2f}")
         print(MAIN_MENU)
         choice = input(">>>").upper()
+
+def handle_choose_taxi():
+    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
+    print("Taxis available:")
+    for taxi_index in range(len(taxis)):
+        print(f"{taxi_index} - {taxis[taxi_index]}")
+    input_valid = False
+    while not input_valid:
+        try:
+            choice = int(input("Choose taxi: "))
+            if 0 <= choice < len(taxis):
+                input_valid = True
+                return taxis[choice]
+            else:
+                print(f"Choice must be between 0 and {len(taxis)-1}")
+        except ValueError:
+            print("Choice must be a number")
+
 
 def handle_drive_taxi(taxi):
     if taxi is None:
