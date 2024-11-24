@@ -13,21 +13,21 @@ def display_main_menu():
     # Present the user with a list of menu options
     #chosen_taxi = None
     bill = 0
+    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     chosen_taxi = None
     print(MAIN_MENU)
     choice = input(">>>").upper()
     while choice != 'Q':
         if choice == 'C':
-            chosen_taxi = handle_choose_taxi()
+            chosen_taxi = handle_choose_taxi(taxis)
         if choice == 'D':
             bill += handle_drive_taxi(chosen_taxi)
             print(f"Bill to date: ${bill:.2f}")
         print(MAIN_MENU)
         choice = input(">>>").upper()
 
-def handle_choose_taxi():
+def handle_choose_taxi(taxis):
     # Displays all available taxis and returns the user's choice
-    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     print("Taxis available:")
     for taxi_index in range(len(taxis)):
         print(f"{taxi_index} - {taxis[taxi_index]}")
@@ -57,10 +57,10 @@ def handle_drive_taxi(taxi):
                 print("Distance must be a positive number")
             else:
                 input_valid = True
-                taxi.start_fare()
+                initial_fare = taxi.get_fare()
                 taxi.drive(distance)
-                print(f"Your {taxi.name} trip cost you {taxi.get_fare()}")
-                return taxi.get_fare()
+                print(f"Your {taxi.name} trip cost you ${taxi.get_fare()-initial_fare:.2f}")
+                return taxi.get_fare() - initial_fare
         except ValueError:
             print("Distance must be a valid number")
 if __name__ == '__main__':
