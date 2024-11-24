@@ -26,6 +26,7 @@ def display_main_menu():
         choice = input(">>>").upper()
 
 def handle_choose_taxi():
+    # Displays all available taxis and returns the user's choice
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     print("Taxis available:")
     for taxi_index in range(len(taxis)):
@@ -44,6 +45,7 @@ def handle_choose_taxi():
 
 
 def handle_drive_taxi(taxi):
+    # Drives a taxi a user specified distance and returns the fare
     if taxi is None:
         print("You need to choose a taxi before you can drive")
         return 0
