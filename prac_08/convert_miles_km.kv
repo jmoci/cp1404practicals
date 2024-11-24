@@ -1,0 +1,26 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            on_text: app.handle_convert_mi_to_km(self.text)
+            id: input_miles
+            text: ''
+            font_size: 48
+            multiline: False
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: 'Up'
+                on_release: app.handle_increment(1)
+            Button:
+                on_release: app.handle_increment(-1)
+                text: 'Down'
+#    Button:
+#        text: 'Convert miles to km'
+#        on_release: app.handle_convert_mi_to_km(input_miles.text)
+    Label:
+        text: app.message
+        id: output_label
+        font_size: 48
+        color: (1, 1, 0, 1)
