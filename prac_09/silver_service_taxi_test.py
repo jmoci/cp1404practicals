@@ -9,11 +9,11 @@ print(s1)
 
 #Test get fare
 print("Test get fare")
-s2 = SilverServiceTaxi("Limo 2",100,2.5)
+s2 = SilverServiceTaxi("Limo 2",100,2)
 print(s2.get_fare())
-s2.drive(40)
+s2.drive(18)
 print(s2.get_fare())
-assert s2.get_fare() == 40*1.23*2.5 + 4.5
+assert s2.get_fare() == 48.80
 
 #Test __str__
 print("Test __str__")
