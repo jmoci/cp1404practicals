@@ -14,3 +14,7 @@ print(s2.get_fare())
 s2.drive(40)
 print(s2.get_fare())
 assert s2.get_fare() == 40*Taxi.price_per_km*2.5 + SilverServiceTaxi.flagfall
+
+#Test __str__
+print("Test __str__")
+print(s2)
