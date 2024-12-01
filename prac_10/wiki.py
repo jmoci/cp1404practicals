@@ -7,9 +7,9 @@ import wikipedia
 def main():
     prompt = input("Enter page title: ")
     while prompt != "":
-        result = wikipedia.search(prompt)[0]
         try:
-            print(wikipedia.summary(result,auto_suggest = False))
+            result = wikipedia.page(prompt,auto_suggest=False)
+            print(result.summary)
         except wikipedia.exceptions.DisambiguationError as e:
             print("we need a more specific title. Try one of the following, or a new search:")
             print(e.options)
