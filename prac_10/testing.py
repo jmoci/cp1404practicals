@@ -54,13 +54,16 @@ def get_as_sentence(phrase):
 
     """
     >>> get_as_sentence('hello')
-    'Hello'
+    'Hello.'
     >>> get_as_sentence('It is an ex parrot.')
     'It is an ex parrot.'
     >>> get_as_sentence('i Am. Writing Python.')
-    I Am. Writing Python.
+    'I Am. Writing Python.'
     """
-    pass
+    phrase = phrase[0].upper() + phrase[1:]
+    if phrase[-1] != ".":
+        phrase = phrase + "."
+    return phrase
 
 # starting with a capital and ending with a single full stop.
 # Important: start with a function header and just use pass as the body
