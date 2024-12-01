@@ -50,7 +50,18 @@ run_tests()
 doctest.testmod()
 
 
-# TODO: 5. Write and test a function to format a phrase as a sentence,
+def get_as_sentence(phrase):
+
+    """
+    >>> get_as_sentence('hello')
+    'Hello'
+    >>> get_as_sentence('It is an ex parrot.')
+    'It is an ex parrot.'
+    >>> get_as_sentence('i Am. Writing Python.')
+    I Am. Writing Python.
+    """
+    pass
+
 # starting with a capital and ending with a single full stop.
 # Important: start with a function header and just use pass as the body
 # then add doctests for 3 tests:
