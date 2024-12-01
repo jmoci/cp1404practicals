@@ -32,9 +32,6 @@ def run_tests():
     # the test below should fail
     assert repeat_string("hi", 2) == "hi hi"
 
-    # TODO: 1. fix the repeat_string function above so that it passes the failing test
-    # Hint: "-".join(["yo", "yo"] -> "yo-yo"
-
     # assert test with custom message,
     # used to see if Car's init method sets the odometer correctly
     # this should pass (no output)
@@ -45,7 +42,11 @@ def run_tests():
     # Note that Car's __init__ function sets the fuel in one of two ways:
     # using the value passed in or the default
     # You should test both of these
+    print("Testing fuel constructor")
     car = Car(fuel=10)
+    assert car.fuel == 10
+    car = Car()
+    assert car.fuel == 0
 
 
 run_tests()
